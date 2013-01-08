@@ -14,10 +14,9 @@ MadesstApiDebugBundle позволяет вам использовать веб 
 
 Чтобы включить бандл, необходимо указать в конфиге:
 
-//app/config/config_dev.yml
-
-madesst_api_debug:
-    enabled: true
+    //app/config/config_dev.yml
+    madesst_api_debug:
+        enabled: true
 
 ## License
 
