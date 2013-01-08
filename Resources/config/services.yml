@@ -1,0 +1,10 @@
+parameters:
+    madesst_api_debug.kernel_listener.class: Madesst\ApiDebugBundle\EventListener\Kernel
+
+services:
+    madesst_api_debug.kernel_listener:
+        class: %madesst_api_debug.kernel_listener.class%
+        arguments: [@service_container, @templating]
+        tags:
+            - { name: kernel.event_listener, event: kernel.response, method: onKernelResponse }
+            - { name: kernel.event_listener, event: kernel.controller, method: onKernelController, priority: 250 }
