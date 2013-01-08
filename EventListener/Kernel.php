@@ -14,8 +14,6 @@ use Symfony\Component\HttpKernel\Event\FilterControllerEvent;
 use Symfony\Component\HttpKernel\HttpKernelInterface;
 use Symfony\Component\Templating\EngineInterface;
 
-use Symfony\Component\DependencyInjection\Container;
-
 class Kernel
 {
 	protected $default_format = 'json';
@@ -28,17 +26,9 @@ class Kernel
 	 */
 	protected $templating;
 
-	/**
-	 * Container
-	 *
-	 * @var Container
-	 */
-	protected $container;
-
-	public function __construct(Container $container, EngineInterface $templating)
+	public function __construct(EngineInterface $templating)
 	{
 		$this->templating = $templating;
-		$this->container = $container;
 	}
 
 	public function onKernelResponse(FilterResponseEvent $event)
